@@ -7,7 +7,7 @@
 
 import java.util.*;
 
-public class CaesarCipher2 {
+public class CaesarCipher {
 
     // Constants 
     public static final String ALPHABET = " abcdefghijklmnopqrstuvwxyz" ;
