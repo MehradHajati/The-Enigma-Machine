@@ -30,11 +30,14 @@ function DropdownMenu() {
                   Please choose an encryption method
                 </p>
                 <select className='pr-4 text-xl font-bold inline text-black'>
-                <option>Orange</option>
-                <option>Blue</option>
-                <option>Red</option>
+                <option>Affine</option>
+                <option>Atbash</option>
+                <option>Caesar</option>
+                <option>Huffman</option>
+                <option>Matrix</option>
+                <option>Railfence</option>
+                <option>Vigenere</option>
                 </select>
-                <p>{`You selected`}</p>
               </div>
               <p className='text-gray-300 py-4 font-bold'>Enter plaintext:</p>
           </div>
