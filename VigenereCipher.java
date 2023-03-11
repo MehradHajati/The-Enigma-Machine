@@ -3,7 +3,6 @@
 // 19/09/2021
 // This class encrypts plaintext to ciphertext and the other way around using the Vigenere cipher
 
-import java.util.Arrays;
 import java.util.Scanner;
 
 public class VigenereCipher{
