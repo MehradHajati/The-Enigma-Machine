@@ -21,8 +21,7 @@ public class AffineCipher{
         return 1;
     }
 
-
-    //Encryption Method
+    //Encryption Method, the first integer "a" has to be coprime with 26 so that decryption will work
     public static String encrypt(String msg, int a, int b){
         msg = msg.toLowerCase();
         String cipherText = "";
@@ -40,7 +39,7 @@ public class AffineCipher{
     }
 
 
-    //Decryption Method
+    //Decryption Method, the first integer "a" has to be coprime with 26 so that decryption will work
     public static String decrypt(String cipherText, int a, int b){
         cipherText = cipherText.toLowerCase();
         String plainText = "";
@@ -67,7 +66,7 @@ public class AffineCipher{
 
 
     //Main Method
-    public static void main(String[] args){
+    /*public static void main(String[] args){
 
         Scanner sc = new Scanner(System.in);
         System.out.println("Would you like to encrypt or decrypt?");
@@ -100,5 +99,5 @@ public class AffineCipher{
             System.out.println("Your plaintext is: " + decrypt(cipherText, a, b));
         }
         sc.close();
-    }
+    }*/
 }

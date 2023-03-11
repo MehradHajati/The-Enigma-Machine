@@ -10,35 +10,45 @@ import java.util.*;
 public class CaesarCipher {
 
     // Constants 
-    public static final String ALPHABET = " abcdefghijklmnopqrstuvwxyz" ;
+    public static final String ALPHABET = "abcdefghijklmnopqrstuvwxyz" ;
+    public static final int ALPHABET_LENGTH = 26;
     // the string and integer beneath can be any negative number or any number larger than 27 but they must match each other for the program to work
 
     //Encryption Method
     public static String encrypt(String message, int key){
+        key = modAlphabetLength(key);
         String encryptedMessage = "";
         message = message.toLowerCase();
         for (int i = 0; i < message.length(); i++){
             char letter = message.charAt(i);
-            for (int j = 0; j < 27; j++){
+            for (int j = 0; j < ALPHABET_LENGTH; j++){
                 if (letter == ALPHABET.charAt(j)){
-                    encryptedMessage = encryptedMessage + ALPHABET.charAt(j + (key % 27));
+                    encryptedMessage = encryptedMessage + ALPHABET.charAt(modAlphabetLength(j + key));
                 }
             }
         } 
         return encryptedMessage.toUpperCase();
     }
+
     //Decryption Method
     public static String decrypt(String letters, int key){
+        key = modAlphabetLength(key);
         String message = "";
         for (int i = 0; i < letters.length(); i++){
-            char letter = ALPHABET.charAt(ALPHABET.indexOf(letters.charAt(i)) - (key % 27));
+            char letter = ALPHABET.charAt(modAlphabetLength(ALPHABET.indexOf(letters.charAt(i)) - key));
             message += letter;
         }
         return message.toUpperCase();
     }
 
-    public static void main(String[] args){
+    public static int modAlphabetLength(int a){
+        while(a < 0){
+            a = a + ALPHABET_LENGTH;
+        }
+        return a % ALPHABET_LENGTH;
+    }
 
+    public static void main(String[] args){
         // Introduction
         Scanner sc = new Scanner(System.in);
         System.out.println("Would you like to encrypt or decrypt?");

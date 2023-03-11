@@ -31,7 +31,7 @@ public class EnigmaMachine{
     public String encryptAtbash(String plainText){ return AtbashCipher.encrypt(plainText); }
     public String decryptAtbash(String cipherText){ return AtbashCipher.decrypt(cipherText); }
 
-    // Wrapper methods for AffineCipher class
+    // Wrapper methods for AffineCipher class, the first integer "a" has to be co prime with 26 so that decryption will work
     public String encryptAffine(String plainText, int a, int b){ return AffineCipher.encrypt(plainText, a, b); }
     public String decryptAffine(String cipherText, int a, int b){ return AffineCipher.decrypt(cipherText, a, b); }
 

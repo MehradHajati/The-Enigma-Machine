@@ -7,9 +7,11 @@ import java.util.Scanner;
 
 public class RailFenceCipher{
 
+    public static final int ALPHABET_LENGTH = 26;
 
     //Encryption Method
     public static String encrypt(String plainText, int key){
+        key = modAlphabetLength(key);
         plainText = plainText.toLowerCase();
         String cipherText = "";
         int length = plainText.length();
@@ -40,9 +42,16 @@ public class RailFenceCipher{
         return cipherText.toUpperCase();
     }
 
+    public static int modAlphabetLength(int a){
+        while(a < 0){
+            a = a + ALPHABET_LENGTH;
+        }
+        return a % ALPHABET_LENGTH;
+    }
 
     //Decryption Method
     public static String decrypt(String cipherText, int key){
+        key = modAlphabetLength(key);
         cipherText = cipherText.toLowerCase();
         int length = cipherText.length();
         char[][] rail = new char[key][length];
@@ -99,7 +108,7 @@ public class RailFenceCipher{
 
 
     //Main Method
-    public static void main(String[] args){
+    /*public static void main(String[] args){
 
         Scanner sc = new Scanner(System.in);
         System.out.println("Would you like to encrypt or decrypt?");
@@ -130,5 +139,5 @@ public class RailFenceCipher{
             System.out.println("Your plaintext is: " + decrypt(cipherText, key));
         }
         sc.close();
-    }
+    }*/
 }
