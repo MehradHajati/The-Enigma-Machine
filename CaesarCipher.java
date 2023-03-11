@@ -34,10 +34,6 @@ public class CaesarCipher {
         String message = "";
         for (int i = 0; i < letters.length(); i++){
             int index = modAlphabetLength(ALPHABET.indexOf(letters.charAt(i)) - (key));
-            // To avoid indexOutOfBounds
-            if(index < 0 ){
-                index += 27;
-            }
             char letter = ALPHABET.charAt(index);
             message += letter;
         }
