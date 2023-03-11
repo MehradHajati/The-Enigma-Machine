@@ -19,19 +19,23 @@ public class CaesarCipher {
         message = message.toLowerCase();
         for (int i = 0; i < message.length(); i++){
             char letter = message.charAt(i);
-            for (int j = 0; j < 27; j++){
-                if (letter == ALPHABET.charAt(j)){
-                    encryptedMessage = encryptedMessage + ALPHABET.charAt(j + (key % 27));
-                }
-            }
+            int index = (ALPHABET.indexOf(letter) + (key % 27) )% 27;
+            // To avoid indexOutOfBounds, and also to skip the empty space
+            encryptedMessage = encryptedMessage + ALPHABET.charAt(index);
         } 
         return encryptedMessage.toUpperCase();
     }
     //Decryption Method
     public static String decrypt(String letters, int key){
+        letters = letters.toLowerCase();
         String message = "";
         for (int i = 0; i < letters.length(); i++){
-            char letter = ALPHABET.charAt(ALPHABET.indexOf(letters.charAt(i)) - (key % 27));
+            int index = (ALPHABET.indexOf(letters.charAt(i)) - (key % 27));
+            // To avoid indexOutOfBounds
+            if(index < 0 ){
+                index += 27;
+            }
+            char letter = ALPHABET.charAt(index);
             message += letter;
         }
         return message.toUpperCase();
@@ -63,8 +67,9 @@ public class CaesarCipher {
         else if(answer.equals("decrypt")){
             System.out.println("Please enter your selected key:");
             int key = sc.nextInt();
+            sc.nextLine();
             System.out.println("Please type the sequence of letters you would like to decrypt:");
-            String letters = sc.next();
+            String letters = sc.nextLine();
             System.out.println(decrypt(letters, key));
         }
         sc.close();
