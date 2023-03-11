@@ -71,5 +71,6 @@ public class CaesarCipher2 {
             }
             System.out.println(message);
         }
+        sc.close();
     }
 }

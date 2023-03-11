@@ -91,6 +91,7 @@ public class MatrixCipher{
             }
             System.out.println(message);
         }
+        sc.close();
     }
 
     // Method to check if the key entered is appropriate

@@ -3,7 +3,6 @@
 // 19/09/2021
 // This class turns plaintext into ciphertext and vice versa using the RailFence Cipher.
 
-import java.util.Arrays;
 import java.util.Scanner;
 
 public class RailFenceCipher{
