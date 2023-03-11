@@ -9,7 +9,7 @@ public class AtbashCipher{
 
     // Constants
     private static final String ALPHABET = "abcdefghijklmnopqrstuvwxyz";
-    private static final String ALPHABETREV = "zyxwvutsrqponmlkjihgfedcda";
+    private static final String ALPHABETREV = "zyxwvutsrqponmlkjihgfedcba";
 
 
     //Encryption Method
