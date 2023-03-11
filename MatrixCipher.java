@@ -21,14 +21,15 @@ public class MatrixCipher{
 
     
     // Encrypting part
-    public static String encrypt(String[] message, String key){
-        int numWords = message.length;
+    public static String encrypt(String message, String key){
+        String[] words = message.toLowerCase().split(" ");
+        int numWords = words.length;
         String encryptedText = "";
 
         for (int i = 0; i < numWords; i++){
-            int numletters = message[i].length();
+            int numletters = words[i].length();
             for (int j = 0; j < numletters; j++){
-                char letter = message[i].charAt(j);
+                char letter = words[i].charAt(j);
                 for (int x = 0; x < 6; x++){
                     for (int y = 0; y < 6; y++){
                         if (letter == MATRIX[x][y]){
@@ -45,14 +46,15 @@ public class MatrixCipher{
     }
 
     //decrypting part
-    public static String decrypt(String[] code, String key){
+    public static String decrypt(String code, String key){
         String decryptedText = "";
+        String[] words = code.toLowerCase().split(" ");
 
-        for (int i = 0; i < code.length; i++){
-            int numletters = code[i].length();
+        for (int i = 0; i < words.length; i++){
+            int numletters = words[i].length();
             for (int j = 0; j < numletters; j = j+2){
-                char letter = code[i].charAt(j);
-                char nextletter = code[i].charAt(j+1);
+                char letter = words[i].charAt(j);
+                char nextletter = words[i].charAt(j+1);
                 int row = key.indexOf(letter);
                 int column = key.indexOf(nextletter);
                 decryptedText += MATRIX[row][column];
@@ -85,7 +87,7 @@ public class MatrixCipher{
             }
             System.out.println("Please type the message you would like to encrypt:");
             sc.nextLine();
-            String[] message = (sc.nextLine().toLowerCase()).split(" ");
+            String message = sc.nextLine();
 
             System.out.println("Your encrypted text is: "+ encrypt(message, key));
         }
@@ -101,7 +103,7 @@ public class MatrixCipher{
             }
             System.out.println("Please type the sequence of letters you would like to decrypt:");
             sc.nextLine();
-            String[] code = (sc.nextLine().toLowerCase()).split(" ");
+            String code = sc.nextLine();
             System.out.println(decrypt(code, key));
         }
         sc.close();
