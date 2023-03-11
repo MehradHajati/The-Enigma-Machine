@@ -9,7 +9,7 @@ public class AtbashCipher{
 
     // Constants
     private static final String ALPHABET = "abcdefghijklmnopqrstuvwxyz";
-    private static final String ALPHABETREV = "zyxwvutsrqponmlkjihgfedcda";
+    private static final String ALPHABETREV = "zyxwvutsrqponmlkjihgfedcba";
 
 
     //Encryption Method
@@ -19,13 +19,7 @@ public class AtbashCipher{
         int length = plainText.length();
         for(int i = 0; i < length; i++){
             char letter = plainText.charAt(i);
-            for(int j = 0; j < 26; j++){
-                if(letter == ALPHABET.charAt(j)){
-                    cipherText += ALPHABETREV.charAt(j);
-                    // this break statment gets out of the for loop for the alphabet with j
-                    break;
-                }
-            }
+            cipherText += ALPHABETREV.charAt(ALPHABET.indexOf(letter));
         }
         return cipherText.toUpperCase();
     }
@@ -38,12 +32,7 @@ public class AtbashCipher{
         int length = cipherText.length();
         for(int i = 0; i < length; i++){
             char letter = cipherText.charAt(i);
-            for(int j = 0; j < 26; j++){
-                if(letter == ALPHABETREV.charAt(j)){
-                    plainText += ALPHABET.charAt(j);
-                    break;
-                }
-            }
+            plainText += ALPHABET.charAt(ALPHABETREV.indexOf(letter));
         }
         return plainText.toUpperCase();
     }
