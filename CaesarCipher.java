@@ -12,9 +12,6 @@ public class CaesarCipher2 {
     // Constants 
     public static final String ALPHABET = " abcdefghijklmnopqrstuvwxyz" ;
     // the string and integer beneath can be any negative number or any number larger than 27 but they must match each other for the program to work
-    public static final String END_OF_ENCRYPTION = "-1";
-    public static final int END_OF_DECRYPTION = -1;
-
 
     //Encryption Method
     public static String encrypt(String message, int key){
