@@ -16,6 +16,39 @@ public class CaesarCipher2 {
     public static final int END_OF_DECRYPTION = -1;
 
 
+    //Encryption Method
+    public static String Encrypt(String message, int key){
+        String encryptedMessage = "";
+        message = message.toLowerCase();
+        for (int i = 0; i < message.length(); i++){
+            char letter = message.charAt(i);
+            for (int j = 0; j < 27; j++){
+                if (letter == ALPHABET.charAt(j)){
+                    encryptedMessage = encryptedMessage + (j + (key % 27)) + " ";
+                }
+            }
+
+        } 
+        encryptedMessage += END_OF_ENCRYPTION;
+        return encryptedMessage.toUpperCase();
+    }
+    //Decryption Method
+    public static String Decrypt(int number, int key){
+        Scanner sc = new Scanner(System.in);
+        ArrayList<Integer> codedMessage = new ArrayList<Integer>(); 
+        while (number != END_OF_DECRYPTION){
+            codedMessage.add(number);
+            number = sc.nextInt();
+        }
+        String message = "";
+        int size = codedMessage.size();
+        for (int i = 0; i < size; i++){
+            char letter = ALPHABET.charAt(codedMessage.get(i) - (key % 27));
+            message += letter;
+        }
+        return message.toUpperCase();
+    }
+
     public static void main(String[] args){
 
         // Introduction
@@ -35,21 +68,7 @@ public class CaesarCipher2 {
             System.out.println("Please type the message you would like to encrypt:");
             String message = sc.next();
             message += sc.nextLine();
-            message.toLowerCase();
-            int length = message.length();
-            String encryptedMessage = "";
-            for (int i = 0; i < length; i++){
-                char letter = message.charAt(i);
-                for (int j = 0; j < 27; j++){
-                    if (letter == ALPHABET.charAt(j)){
-                        encryptedMessage = encryptedMessage + (j + (key % 27)) + " ";
-                    }
-                }
-
-            } 
-            encryptedMessage += END_OF_ENCRYPTION;
-            System.out.println(encryptedMessage);
-
+            System.out.println(Encrypt(message, key));
         }
 
         // Decoding Part
@@ -58,18 +77,7 @@ public class CaesarCipher2 {
             int key = sc.nextInt();
             System.out.println("Please type the sequence of numbers you would like to decrypt:");
             int number = sc.nextInt();
-            ArrayList<Integer> codedMessage = new ArrayList<Integer>(); 
-            while (number != END_OF_DECRYPTION){
-                codedMessage.add(number);
-                number = sc.nextInt();
-            }
-            String message = "";
-            int size = codedMessage.size();
-            for (int i = 0; i < size; i++){
-                char letter = ALPHABET.charAt(codedMessage.get(i) - (key % 27));
-                message += letter;
-            }
-            System.out.println(message);
+            System.out.println(Decrypt(number, key));
         }
         sc.close();
     }
