@@ -17,33 +17,24 @@ public class CaesarCipher2 {
 
 
     //Encryption Method
-    public static String Encrypt(String message, int key){
+    public static String encrypt(String message, int key){
         String encryptedMessage = "";
         message = message.toLowerCase();
         for (int i = 0; i < message.length(); i++){
             char letter = message.charAt(i);
             for (int j = 0; j < 27; j++){
                 if (letter == ALPHABET.charAt(j)){
-                    encryptedMessage = encryptedMessage + (j + (key % 27)) + " ";
+                    encryptedMessage = encryptedMessage + ALPHABET.charAt(j + (key % 27));
                 }
             }
-
         } 
-        encryptedMessage += END_OF_ENCRYPTION;
         return encryptedMessage.toUpperCase();
     }
     //Decryption Method
-    public static String Decrypt(int number, int key){
-        Scanner sc = new Scanner(System.in);
-        ArrayList<Integer> codedMessage = new ArrayList<Integer>(); 
-        while (number != END_OF_DECRYPTION){
-            codedMessage.add(number);
-            number = sc.nextInt();
-        }
+    public static String decrypt(String letters, int key){
         String message = "";
-        int size = codedMessage.size();
-        for (int i = 0; i < size; i++){
-            char letter = ALPHABET.charAt(codedMessage.get(i) - (key % 27));
+        for (int i = 0; i < letters.length(); i++){
+            char letter = ALPHABET.charAt(ALPHABET.indexOf(letters.charAt(i)) - (key % 27));
             message += letter;
         }
         return message.toUpperCase();
@@ -68,16 +59,16 @@ public class CaesarCipher2 {
             System.out.println("Please type the message you would like to encrypt:");
             String message = sc.next();
             message += sc.nextLine();
-            System.out.println(Encrypt(message, key));
+            System.out.println(encrypt(message, key));
         }
 
         // Decoding Part
         else if(answer.equals("decrypt")){
             System.out.println("Please enter your selected key:");
             int key = sc.nextInt();
-            System.out.println("Please type the sequence of numbers you would like to decrypt:");
-            int number = sc.nextInt();
-            System.out.println(Decrypt(number, key));
+            System.out.println("Please type the sequence of letters you would like to decrypt:");
+            String letters = sc.next();
+            System.out.println(decrypt(letters, key));
         }
         sc.close();
     }
