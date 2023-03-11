@@ -9,7 +9,7 @@ public class AffineCipher{
 
     // Constants
     private static final String ALPHABET = "abcdefghijklmnopqrstuvwxyz" ;
-
+    private static final int ALPHABET_LENGTH = 26;
 
     // Mod Inverse Method for Decryption
     static int modInverse(int a, int m){
@@ -21,16 +21,16 @@ public class AffineCipher{
         return 1;
     }
 
-    //Encryption Method, the first integer "a" has to be coprime with 26 so that decryption will work
+    //Encryption Method, the first integer "a" has to be coprime with ALPHABET_LENGTH so that decryption will work
     public static String encrypt(String msg, int a, int b){
         msg = msg.toLowerCase();
         String cipherText = "";
         int length = msg.length();
         for(int i = 0; i < length; i++){
             char letter = msg.charAt(i);
-            for(int j = 0; j < 26; j++){
+            for(int j = 0; j < ALPHABET_LENGTH; j++){
                 if(letter == ALPHABET.charAt(j)){
-                    cipherText += ALPHABET.charAt(((j*a) + b) % 26);
+                    cipherText += ALPHABET.charAt(((j*a) + b) % ALPHABET_LENGTH);
                     break;
                 }
             }
@@ -39,22 +39,22 @@ public class AffineCipher{
     }
 
 
-    //Decryption Method, the first integer "a" has to be coprime with 26 so that decryption will work
+    //Decryption Method, the first integer "a" has to be coprime with ALPHABET_LENGTH so that decryption will work
     public static String decrypt(String cipherText, int a, int b){
         cipherText = cipherText.toLowerCase();
         String plainText = "";
-        int euclid = modInverse(a, 26);
+        int euclid = modInverse(a, ALPHABET_LENGTH);
         int length = cipherText.length();
         for(int i = 0; i < length; i++){
             char letter = cipherText.charAt(i);
-            for(int j = 0; j < 26; j++){
+            for(int j = 0; j < ALPHABET_LENGTH; j++){
                 if(letter == ALPHABET.charAt(j)){
                     int noMod = (j-b) * euclid;
                     if( noMod < 0){
-                        plainText += ALPHABET.charAt(26 - (Math.abs(noMod) % 26));
+                        plainText += ALPHABET.charAt(ALPHABET_LENGTH - (Math.abs(noMod) % ALPHABET_LENGTH));
                     }
                     else{
-                        plainText += ALPHABET.charAt(noMod % 26);
+                        plainText += ALPHABET.charAt(noMod % ALPHABET_LENGTH);
                     }
                     break;
                 }
