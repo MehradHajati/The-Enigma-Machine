@@ -4,12 +4,16 @@
  */
 public class EnigmaMachine{
 
-    boolean encoding = true; // this instance variable will keep track of whether we are encoding or deconding, if true its we are encoding, false otherwise
+    // this instance variable will keep track of whether we are encoding or deconding, if true its we are encoding, false otherwise
+    boolean encoding = true;
 
 
     public EnigmaMachine(){
         
     }
+
+    // Method for changing the mode from encoding to decoding and vice versa
+    public void changeMode(){ encoding = !encoding; }
 
     // Wrapper method for Vigenere Class
     public String encryptVigenere(String plaintText, String key){ return VigenereCipher.encrypt(plaintText, key); }
