@@ -63,8 +63,9 @@ public class MatrixCipher{
         }
         return decryptedText;
     }
+
     // Main Method
-    public static void main(String[] args){
+    /*public static void main(String[] args){
 
         // Introduction
         Scanner sc = new Scanner(System.in);
@@ -107,7 +108,7 @@ public class MatrixCipher{
             System.out.println(decrypt(code, key));
         }
         sc.close();
-    }
+    }*/
 
     // Method to check if the key entered is appropriate
     public static boolean aptKey(String key){
