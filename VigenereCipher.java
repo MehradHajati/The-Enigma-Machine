@@ -44,7 +44,7 @@ public class VigenereCipher{
     }
 
     // Encryption Method
-    public static String Encrypt(String plainText, String key){
+    public static String encrypt(String plainText, String key){
         plainText = plainText.toLowerCase();
         key = key.toLowerCase();
         int length = plainText.length();
@@ -60,7 +60,7 @@ public class VigenereCipher{
 
 
     // Decryption Method
-    public static String Decrypt(String cipherText, String key){
+    public static String decrypt(String cipherText, String key){
         cipherText = cipherText.toLowerCase();
         key = key.toLowerCase();
         int length = cipherText.length();
@@ -97,7 +97,7 @@ public class VigenereCipher{
             String plainText = sc.next();
             System.out.println("Please enter your key:");
             String key = sc.next();
-            System.out.println("Your CipherText is: " + Encrypt(plainText, key));
+            System.out.println("Your CipherText is: " + encrypt(plainText, key));
         }
 
         //Decryption part
@@ -106,7 +106,7 @@ public class VigenereCipher{
             String cipherText = sc.next();
             System.out.println("Please enter your key:");
             String key = sc.next();
-            System.out.println("Your plaintext is: " + Decrypt(cipherText, key));
+            System.out.println("Your plaintext is: " + decrypt(cipherText, key));
         }
         sc.close();
         

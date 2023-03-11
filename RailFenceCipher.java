@@ -9,7 +9,7 @@ public class RailFenceCipher{
 
 
     //Encryption Method
-    public static String Encrypt(String plainText, int key){
+    public static String encrypt(String plainText, int key){
         plainText = plainText.toLowerCase();
         String cipherText = "";
         int length = plainText.length();
@@ -42,7 +42,7 @@ public class RailFenceCipher{
 
 
     //Decryption Method
-    public static String Decrypt(String cipherText, int key){
+    public static String decrypt(String cipherText, int key){
         cipherText = cipherText.toLowerCase();
         int length = cipherText.length();
         char[][] rail = new char[key][length];
@@ -117,7 +117,7 @@ public class RailFenceCipher{
             String plainText = sc.nextLine();
             System.out.println("Please enter your key:");
             int key = sc.nextInt();
-            System.out.println("Your CipherText is: " + Encrypt(plainText, key));
+            System.out.println("Your CipherText is: " + encrypt(plainText, key));
         }
 
         //Decryption part
@@ -127,7 +127,7 @@ public class RailFenceCipher{
             String cipherText = sc.nextLine();
             System.out.println("Please enter your key:");
             int key = sc.nextInt();
-            System.out.println("Your plaintext is: " + Decrypt(cipherText, key));
+            System.out.println("Your plaintext is: " + decrypt(cipherText, key));
         }
         sc.close();
     }

@@ -23,7 +23,7 @@ public class AffineCipher{
 
 
     //Encryption Method
-    public static String Encrypt(String msg, int a, int b){
+    public static String encrypt(String msg, int a, int b){
         msg = msg.toLowerCase();
         String cipherText = "";
         int length = msg.length();
@@ -41,7 +41,7 @@ public class AffineCipher{
 
 
     //Decryption Method
-    public static String Decrypt(String cipherText, int a, int b){
+    public static String decrypt(String cipherText, int a, int b){
         cipherText = cipherText.toLowerCase();
         String plainText = "";
         int euclid = modInverse(a, 26);
@@ -86,7 +86,7 @@ public class AffineCipher{
             System.out.println("Please enter your two integer keys with a space seperating them: (Remember your first key has to be a coprime with 26)");
             int a = sc.nextInt();
             int b = sc.nextInt();
-            System.out.println("Your CipherText is: " + Encrypt(plainText, a, b));
+            System.out.println("Your CipherText is: " + encrypt(plainText, a, b));
         }
 
         //Decryption part
@@ -97,7 +97,7 @@ public class AffineCipher{
             System.out.println("Please enter your two integer keys with a space seperating them:");
             int a = sc.nextInt();
             int b = sc.nextInt();
-            System.out.println("Your plaintext is: " + Decrypt(cipherText, a, b));
+            System.out.println("Your plaintext is: " + decrypt(cipherText, a, b));
         }
         sc.close();
     }

@@ -13,7 +13,7 @@ public class AtbashCipher{
 
 
     //Encryption Method
-    public static String Encrypt(String plainText){
+    public static String encrypt(String plainText){
         plainText = plainText.toLowerCase();
         String cipherText = "";
         int length = plainText.length();
@@ -32,7 +32,7 @@ public class AtbashCipher{
 
 
     //Decryption Method
-    public static String Decrypt(String cipherText){
+    public static String decrypt(String cipherText){
         cipherText = cipherText.toLowerCase();
         String plainText = "";
         int length = cipherText.length();
@@ -67,7 +67,7 @@ public class AtbashCipher{
             System.out.println("Please enter the message you would like to encrypt:");
             sc.nextLine();
             String plainText = sc.nextLine();
-            System.out.println("Your CipherText is: " + Encrypt(plainText));
+            System.out.println("Your CipherText is: " + encrypt(plainText));
         }
 
         //Decryption part
@@ -75,7 +75,7 @@ public class AtbashCipher{
             System.out.println("Please enter the ciphertext you would like to decrypt:");
             sc.nextLine();
             String cipherText = sc.nextLine();
-            System.out.println("Your plaintext is: " + Decrypt(cipherText));
+            System.out.println("Your plaintext is: " + decrypt(cipherText));
         }
         sc.close();
     }
