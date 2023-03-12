@@ -1,0 +1,29 @@
+buildscript {
+    repositories {
+        mavenLocal()
+        mavenCentral()
+        maven {
+            url "https://plugins.gradle.org/m2/"
+        }
+    }
+    dependencies {
+        classpath 'com.moowork.gradle:gradle-node-plugin:1.2.0'
+    }
+}
+apply plugin: 'base'
+apply plugin: 'com.moowork.node'
+
+node {
+    /* gradle-node-plugin configuration
+       https://github.com/srs/gradle-node-plugin/blob/master/docs/node.md
+       Task name pattern:
+       ./gradlew npm_<command> Executes an NPM command.
+    */
+    version = '12.6.0'
+    npmVersion = '6.9.0'
+    download = true
+}
+
+configurations {
+    npmResources
+}
