@@ -41,7 +41,7 @@ public class MatrixCipher{
             }
             encryptedText += " ";
         }
-        return encryptedText;
+        return encryptedText.toUpperCase();
 
     }
 
@@ -61,7 +61,7 @@ public class MatrixCipher{
             }
             decryptedText += " ";
         }
-        return decryptedText;
+        return decryptedText.toUpperCase();
     }
 
     // Main Method
