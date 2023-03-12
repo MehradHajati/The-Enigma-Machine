@@ -1,0 +1,4 @@
+rootProject.name = 'Hackathon2023'
+include 'back-end'
+include 'front-end'
+
