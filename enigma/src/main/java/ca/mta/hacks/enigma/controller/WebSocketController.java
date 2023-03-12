@@ -1,7 +1,6 @@
-package ca.mta.hacks.controller;
+package ca.mta.hacks.enigma.controller;
 
-import ca.mta.hacks.dto.DecryptInfo;
-import ca.mta.hacks.dto.EncryptInfo;
+import ca.mta.hacks.enigma.dto.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;

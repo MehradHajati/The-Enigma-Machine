@@ -1,4 +1,4 @@
-package ca.mta.hacks.controller;
+package ca.mta.hacks.enigma.controller;
 
 import org.springframework.context.annotation.Configuration;
 import org.springframework.messaging.simp.config.MessageBrokerRegistry;
