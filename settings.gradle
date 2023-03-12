@@ -1,0 +1,5 @@
+rootProject.name = 'The-Enigma-Machine'
+include 'back-end'
+include 'front-end'
+
+
