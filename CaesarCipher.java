@@ -47,7 +47,7 @@ public class CaesarCipher {
         return a % ALPHABET_LENGTH;
     }
 
-    public static void main(String[] args){
+    /*public static void main(String[] args){
         // Introduction
         Scanner sc = new Scanner(System.in);
         System.out.println("Would you like to encrypt or decrypt?");
@@ -78,5 +78,5 @@ public class CaesarCipher {
             System.out.println(decrypt(letters, key));
         }
         sc.close();
-    }
+    }*/
 }
